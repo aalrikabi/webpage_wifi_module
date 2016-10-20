@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Spin-off of "Using SQLite inside a Webpage"</title>
+</head>
+<body>
+
+  <h1>Todo list</h1>
+  <form id="todo-form" target="self" method="get">
+    
+    <label>What should you do?
+       <input type="text" id="todo-input">
+    </label>
+    
+    <button type="submit">Store</button>
+	<label id="testing_1" > </label>
+	<label id="testing_2"> </label>
+ 
+  </form>
+  
+  <h1>All todos:</h1>
+  <ul id="todo-list">
+  </ul>
+  
+  <script src='https://cdn.rawgit.com/kripken/sql.js/master/js/sql.js'></script>
+  
+<script>
+    
+    /***** DATABASE LOGIC **********
+    
+      The following code would typically be run on a server,
+      so that the database would be persisted on the server 
+      across user sessions. 
+      We don't usually use SQLite inside a webpage
+      since we can just as easily store inside JavaScript objects,
+      and using SQLite is less performant.
+    */
+  
+    // Creates the db and table
+   // var db = new SQL.Database();
+   // db.run("CREATE TABLE todos (id INTEGER PRIMARY KEY AUTOINCREMENT, item TEXT);");
+  
+    // Expects a todo (string) and inserts in db
+   // var insertTodo = function(todo) {db.run("INSERT INTO todos (item) VALUES (?)", [todo]);  
+   // };
+  
+		  var xhr = new XMLHttpRequest();
+		xhr.open('GET', '../Database/logDB', true);
+		xhr.responseType = 'arraybuffer';
+		var db = new SQL.Database(); 
+		xhr.onload = function(e) {
+		  var uInt8Array = new Uint8Array(this.response);
+		  db = new SQL.Database(uInt8Array);
+		 // var contents = db.exec("SELECT datetime,name,value FROM log   WHERE name like '%Port 1 Power Total%' and datetime='2016-06-14 21:33' ");
+		  // contents is now [{columns:['col1','col2',...], values:[[first row], [second row], ...]}]
+		  
+			var results = db.exec("SELECT datetime,name,value FROM log   WHERE DATE(datetime)= date('now','start of month','-3 month', '+14 day')");
+			
+			var listtest = document.getElementById("testing_1"); 
+			   listtest.innerHTML = results[0].values[0][2]; //here we are taking the value in the result and displaying on the webpage
+			   
+			var results2 = db.exec("SELECT date('now','start of month','-3 month', '+14 day')");
+			var listtest = document.getElementById("testing_2"); 
+			   listtest.innerHTML = results2[0].values[0][0]; //here we are taking the value in the result and displaying on the webpage
+		  
+		};
+		xhr.send();
+		  
+  
+  
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LEX TM3</title>
+<!-- <link rel="stylesheet" href="../../styles/style.css"> -->
+    <!--<link rel="stylesheet" href="../../styles/w3.css">-->
+    <link rel="stylesheet" href="css/w3.css">
+ 
+<style>
+/*table, th, td {*/
+    /*border: 2px solid black;*/
+/*}*/
+table {
+    width:100%;
+}
+table, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align-last: right;
+}
+th{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align-last: center ;
+}
+
+/* Apply padding to td elements that are direct children of the tr element. */
+tr.spaceUnder > td
+{
+    padding-top: 1em;
+}
+/*th, td {*/
+    /*padding: 5px;*/
+    /*text-align: center;*/
+/*}*/
+
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;
+}
+#section {
+
+    float:left;
+    padding:10px;
+}
+#article {
+
+    float:left;
+    padding:10px;
+}
+#footer {
+    background-color:white;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;
+}
+#aside {
+
+    float:right;
+    padding:10px;
+}
+
+
+/*table#table_1 {*/
+    /*width: 100%;*/
+    /*background-color: #f1f1c1;*/
+
+/*}*/
+
+/*table#table_1 th {*/
+    /*padding: 5px;*/
+    /*text-align: right;*/
+/*}*/
+/*div.relative {*/
+    /*position: relative;*/
+    /*width: 450px;*/
+    /*height: 200px;*/
+    /*!*border: 3px solid #73AD21;*!*/
+/*}*/
+
+#left, #left1, #left2, #left3 {
+    float: left;
+    position: relative;
+    margin-right: 85px;
+    background-color: red;
+}
+
+#right {
+    float: right;
+    position: relative;
+    text-align: left;
+    width: 200px;
+    background-color: yellow;
+}
+</style>
+
+
+
+</head>
+ 
+
+<!-- <a class="mainmenubutton" href="../default.html">Back to Main Menu<br></a> -->
+<!-- <a class="w3-btn w3-indigo" href="../default.html">Back to Main Menu<br></a> -->
+
+
+	
+
+
+<body>
+
+<!--</div>-->
+<br>
+        <!--<div id="article">-->
+             <table class="w3-table w3-striped w3-boardered w3-card-4" align="center" id="table_2" >
+            <tr class="w3-blue">
+                <th style="text-align:center" colspan="7"  > Output Ports</th>
+
+            </tr>
+
+            <tr class="w3-">
+                <th class="w3-blue" width="14.28%"  >Ports</th>
+                <th width="14.28%" > Frequency</th>
+                <th width="14.28%" > Voltage </th>
+                <th width="14.28%" > Current</th>
+                <th width="14.28%" > Power</th>
+                <th width="19%" > Power Load %</th>
+                <th width="10%" > Priority</th>
+
+            </tr>
+
+            <tr>
+                <th class="w3-blue">Port 4 </th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td><div class='block'>
+                    <span id="port4pa"> </span>
+                    <progress class='inline-block' max='60' value='50' id="port4p"> </progress>
+                </div>  </td>
+                <td> </td>
+
+            </tr>
+
+            <tr>
+                <th class="w3-blue">Port 5 </th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td><div class='block'>
+                    <span id="port5pa"> </span>
+                    <progress class='inline-block' max='30' value='50' id="port5p"></progress>
+                </div>  </td>
+                <td> </td>
+
+            </tr>
+
+            <tr>
+                <th class="w3-blue">Port 6 </th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td><div class='block'>
+                    <span id="port6pa"> </span>
+                    <progress class='inline-block' max='20' value='50' id="port6p"></progress>
+                </div>  </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <th class="w3-blue">Port 7 </th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td><div class='block'>
+                    <span id="port7pa"> </span>
+                    <progress class='inline-block' max='20' value='50' id="port7p"></progress>
+                </div>  </td>
+                <td> </td>
+            </tr>
+
+                 <tr>
+                     <th class="w3-black"></th>
+                     <td class="w3-black"> </td>
+                     <td class="w3-black"> </td>
+                     <td class="w3-black"> </td>
+                     <td class="w3-black"> </td>
+                     <td class="w3-black"> </td>
+                     <td class="w3-black"> </td>
+                 </tr>
+
+                 <tr>
+                <th class="w3-blue">Port 8 </th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td><div class='block'>
+                    <span id="port8pa"> </span>
+                    <progress class='inline-block' max='30' value='50' id="port8p"></progress>
+                </div>  </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <th class="w3-blue">Port 9 </th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td><div class='block'>
+                    <span id="port9pa"> </span>
+                    <progress class='inline-block' max='20' value='50' id="port9p"></progress>
+                </div>  </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <th class="w3-blue">Port 10 </th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> <div class='block'>
+                    <span id="port10pa"> </span>
+                    <progress class='inline-block' max='20' value='50' id="port10p"></progress>
+                </div> </td>
+                <td> </td>
+            </tr>
+
+        </table>
+
+        <!--</div>-->
+<br>
+
+
+        <div id="footer">
+    </div>
+ <!-- <a class="w3-btn w3-indigo" href="../livedata.html">Port 1 Meter<br></a> -->
+<br>
+       
+</body>
+</html>
+
+<body>
+<!--##################################################chart -->
+<!--<div id="chart_div" style="width: 400px; height: 120px;"></div>-->
+<!--<div id="donutchart" style="width: 800px; height: 500px;"></div>-->
+</body>
+</html>

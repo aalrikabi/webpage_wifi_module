@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LEX TM3</title>
+<!-- <link rel="stylesheet" href="../../styles/style.css"> -->
+    <!--<link rel="stylesheet" href="../../styles/w3.css">-->
+    <link rel="stylesheet" href="css/w3.css">
+
+  <!-- JavaScript Library includes -->
+<script src="js/jquery.js"></script>
+<script src="js/console.js"></script>
+<script src="js/livedata_rev2.js"></script>
+    <script type="text/javascript" src="js/smoothie.js"></script>
+<style>
+/*table, th, td {*/
+    /*border: 2px solid black;*/
+/*}*/
+table {
+    width:100%;
+}
+table, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align-last: right;
+}
+th{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align-last: center ;
+}
+
+/* Apply padding to td elements that are direct children of the tr element. */
+tr.spaceUnder > td
+{
+    padding-top: 1em;
+}
+/*th, td {*/
+    /*padding: 5px;*/
+    /*text-align: center;*/
+/*}*/
+
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;
+}
+#section {
+
+    float:left;
+    padding:10px;
+}
+#article {
+
+    float:left;
+    padding:10px;
+}
+#footer {
+    background-color:white;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;
+}
+#aside {
+
+    float:right;
+    padding:10px;
+}
+
+
+/*table#table_1 {*/
+    /*width: 100%;*/
+    /*background-color: #f1f1c1;*/
+
+/*}*/
+
+/*table#table_1 th {*/
+    /*padding: 5px;*/
+    /*text-align: right;*/
+/*}*/
+/*div.relative {*/
+    /*position: relative;*/
+    /*width: 450px;*/
+    /*height: 200px;*/
+    /*!*border: 3px solid #73AD21;*!*/
+/*}*/
+
+#left, #left1, #left2, #left3 {
+    float: left;
+    position: relative;
+    margin-right: 85px;
+    background-color: red;
+}
+
+#right {
+    float: right;
+    position: relative;
+    text-align: left;
+    width: 200px;
+    background-color: yellow;
+}
+</style>
+
+
+
+</head>
+
+	<!-- <div class="container"> -->
+	<div class="w3-container">
+
+<!-- <a class="mainmenubutton" href="../default.html">Back to Main Menu<br></a> -->
+<!-- <a class="w3-btn w3-indigo" href="../default.html">Back to Main Menu<br></a> -->
+<img align="right" src="images/lextm3.png" width="270" height="70" alt="" >
+        <div id="left3" class="relative">
+            <div  class="w3-container w3-sectionra w3-pale-blue w3-bottombar w3-border-blue w3-border">
+                <p id="Mode_status" >Mode Status</p></div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+	<header class="w3-container">
+		<h2 align="center"  ><b>Input and Output Power</b></h2>
+		<h3 align="center">PMM</h3>
+
+
+	</header>
+
+</head>
+
+<noscript>
+	<div class="popup_bg" style="visibility:visible; z-index:999;">
+		<div style="margin:200px auto; width:300px; background-color:#006699; color:#FFFFFF; line-height:150%; 
+		border:3px solid #FFF; padding:5px;">Your browser does not support JavaScript. Choose a browser that supports JavaScript. <br>HED Inc. CL-T04-100</p></div>
+	</div>
+</noscript>
+<div id="Loading" class="popup_bg"></div>
+        </div>
+<div id="hiddenMask" class="popup_bg"></div>
+
+<body>
+
+        <!--<div id="nav">-->
+		    <table class="w3-table w3-striped w3-boardered w3-card-4" align="center" id="table_1" >
+		<tr class="w3-blue">
+			<th style="text-align:center" colspan="7"  > Input Ports</th>
+
+		</tr>
+
+		<tr class="w3-">
+            <th width="14.28%" class="w3-blue" >Ports</th>
+			<th width="14.28%" > Frequency</th>
+			<th width="14.28%" > Voltage </th>
+            <th width="14.28%" > Current</th>
+            <th width="14.28%" > Power</th>
+            <th width="19%" > Power Load %</th>
+            <th width="10%" > Capacity </th>
+
+		</tr>
+
+		<tr>
+            <th class="w3-blue">Port 1 </th>
+            <td> </td>
+            <td > </td>
+            <td > </td>
+            <td > </td>
+            <td> <div class='block'>
+                <span id="port1pa"> </span>
+                <progress class='inline-block' max='60' value='50' id="port1pp"></progress>
+
+                <!--<script>-->
+                    <!--document.getElementById('port1p').innerHTML =   window.Power_chart1.Port1P;-->
+                    <!--document.getElementById('port1pa').innerHTML =   window.Power_chart1.Port1P + " %";-->
+                <!--</script>-->
+            </div></td>
+            <td > </td>
+		</tr>
+
+		<tr>
+            <th class="w3-blue">Port 2 </th>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> <div class='block'>
+                <span id="port2pa"> </span>
+                <progress class='inline-block' max='60' value='50' id="port2pp"></progress>
+            </div> </td>
+            <td > </td>
+
+    </tr>
+
+		<tr>
+            <th   class="w3-blue">Port 3 </th>
+            <td  class="w3-grey"> </td>
+            <td  class="w3-grey"> </td>
+            <td  class="w3-grey"> </td>
+            <td  class="w3-grey"> </td>
+            <td  class="w3-grey"> <div class='block'>
+                <span id="port3pa"> </span>
+                <progress class='inline-block' max='60' value='50' id="port3pp"></progress>
+            </div> </td>
+            <td > </td>
+    </tr>
+
+		</table>
+        <!--</div>-->
+<br>
+        <!--<div id="article">-->
+             <table class="w3-table w3-striped w3-boardered w3-card-4" align="center" id="table_2" >
+            <tr class="w3-blue">
+                <th style="text-align:center" colspan="7"  > Output Ports</th>
+
+            </tr>
+
+            <tr class="w3-">
+                <th class="w3-blue" width="14.28%"  >Ports</th>
+                <th width="14.28%" > Frequency</th>
+                <th width="14.28%" > Voltage </th>
+                <th width="14.28%" > Current</th>
+                <th width="14.28%" > Power</th>
+                <th width="19%" > Power Load %</th>
+                <th width="10%" > Priority</th>
+
+            </tr>
+
+            <tr>
+                <th class="w3-blue">Port 4 </th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td><div class='block'>
+                    <span id="port4pa"> </span>
+                    <progress class='inline-block' max='60' value='50' id="port4p"> </progress>
+                </div>  </td>
+                <td> </td>
+
+            </tr>
+
+            <tr>
+                <th class="w3-blue">Port 5 </th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td><div class='block'>
+                    <span id="port5pa"> </span>
+                    <progress class='inline-block' max='30' value='50' id="port5p"></progress>
+                </div>  </td>
+                <td> </td>
+
+            </tr>
+
+            <tr>
+                <th class="w3-blue">Port 6 </th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td><div class='block'>
+                    <span id="port6pa"> </span>
+                    <progress class='inline-block' max='20' value='50' id="port6p"></progress>
+                </div>  </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <th class="w3-blue">Port 7 </th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td><div class='block'>
+                    <span id="port7pa"> </span>
+                    <progress class='inline-block' max='20' value='50' id="port7p"></progress>
+                </div>  </td>
+                <td> </td>
+            </tr>
+
+                 <tr>
+                     <th class="w3-black"></th>
+                     <td class="w3-black"> </td>
+                     <td class="w3-black"> </td>
+                     <td class="w3-black"> </td>
+                     <td class="w3-black"> </td>
+                     <td class="w3-black"> </td>
+                     <td class="w3-black"> </td>
+                 </tr>
+
+                 <tr>
+                <th class="w3-blue">Port 8 </th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td><div class='block'>
+                    <span id="port8pa"> </span>
+                    <progress class='inline-block' max='30' value='50' id="port8p"></progress>
+                </div>  </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <th class="w3-blue">Port 9 </th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td><div class='block'>
+                    <span id="port9pa"> </span>
+                    <progress class='inline-block' max='20' value='50' id="port9p"></progress>
+                </div>  </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <th class="w3-blue">Port 10 </th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> <div class='block'>
+                    <span id="port10pa"> </span>
+                    <progress class='inline-block' max='20' value='50' id="port10p"></progress>
+                </div> </td>
+                <td> </td>
+            </tr>
+
+        </table>
+
+        <!--</div>-->
+<br>
+<div id="left" class="relative">
+        <div class="w3-container w3-sectionra w3-pale-blue w3-bottombar w3-border-blue w3-border">
+            <p >Note: table rows will change color depend on the port status:  </p>
+             <p>-Gray when the ports are disabled. </p>
+            <p>-White when the ports are enabled.</p>
+            <p>-Red when there is fault.   </p>
+            <p>-Black color line will appear when port 8 to 10 are separated from port 4 to 7 bus. </p>
+        </div>
+
+</div>
+        <div id="left1" class="relative">
+            <div  class="w3-container w3-sectionra w3-pale-blue w3-bottombar w3-border-blue w3-border">
+                <p id="total_output_power" >Total Output Power</p></div>
+        </div>
+
+        <div id="left2" class="relative">
+            <div  class="w3-container w3-sectionra w3-pale-blue w3-bottombar w3-border-blue w3-border">
+                <p id="gen_timer" >Generator Timer</p></div>
+        </div>
+
+
+
+        <div id="footer">
+    <table class="w3-table w3-striped w3-boardered w3-card-4" align="center" style="width:25%" id="Power_table1" >
+    <tr class="w3-teal">
+      <th >Download CSV</th>
+    </tr>
+    <tr>
+      <td align="center" class="w3-white"><a class="w3-btn-block w3-indigo" href="../../js/sqlite_csv.php">Download CSV Log File<br> </a> </td>
+    </tr>
+    <tr>
+      <td   halign="center" class="w3-white">   <a class="w3-btn-block w3-indigo" href="../../js/Port1.php">Port 1 Download<br></a></td>
+    </tr>
+    <tr>
+      <td class="w3-white"><a class="w3-btn-block w3-indigo" href="../../js/Port2.php">Port 2 Download<br></a> </td>
+    </tr>
+    <tr>
+      <td class="w3-white"><a class="w3-btn-block w3-indigo" href="../../js/Port3.php">Port 3 Download<br></a> </td>
+    </tr>
+    <tr>
+      <td class="w3-white">  <a class="w3-btn-block w3-indigo" href="../../js/Port4.php">Port 4 Download<br></a> </td>
+    </tr>
+    <tr>
+      <td class="w3-white"><a class="w3-btn-block w3-indigo" href="../../js/Port5.php">Port 5 Download<br></a> </td>
+    </tr>
+    <tr>
+      <td class="w3-white"><a class="w3-btn-block w3-indigo" href="../../js/Port6.php">Port 6 Download<br></a> </td>
+    </tr>
+    <tr>
+      <td class="w3-white"><a class="w3-btn-block w3-indigo" href="../../js/Port7.php">Port 7 Download<br></a> </td>
+    </tr>
+    <tr>
+      <td class="w3-white"><a class="w3-btn-block w3-indigo" href="../../js/Port8.php">Port 8 Download<br></a> </td>
+    </tr>
+    <tr>
+      <td class="w3-white"><a class="w3-btn-block w3-indigo" href="../../js/Port9.php">Port 9 Download<br></a> </td>
+    </tr>
+    <tr>
+      <td class="w3-white"><a class="w3-btn-block w3-indigo" href="../../js/Port10.php">Port 10 Download<br></a> </td>
+    </tr>
+    </table>
+        </div>
+ <!-- <a class="w3-btn w3-indigo" href="../livedata.html">Port 1 Meter<br></a> -->
+<br>
+        <div class="holder"><canvas id="mycanvas4" width="500" height="300"></canvas></div>
+        <!--$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ @@@@@@@@@@@@@@@@@@@@@@@@@@@@ chart  disabled @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+        <!--<script type="text/javascript">-->
+            <!--//            var bobbyS_vars = {-->
+            <!--//                title: Math.random() ,-->
+            <!--//            };-->
+            <!--(function() {-->
+                <!--var power_in = document.write(window.power2);//document(powerin)-->
+                <!--var line1 = new TimeSeries();-->
+                <!--var line2 = new TimeSeries();-->
+                <!--var line3 = new TimeSeries();-->
+                <!--setInterval(function() {-->
+                    <!--line1.append(new Date().getTime(),window.Power_chart1.Port1P);// document.write(window.bobbyS_vars1.title ));-->
+                    <!--line2.append(new Date().getTime(), window.Power_chart1.Port2P);-->
+                    <!--line3.append(new Date().getTime(), window.Power_chart1.Port3P);-->
+                <!--}, 1000);-->
+
+<!--//                var chart = new SmoothieChart({millisPerPixel:40,-->
+<!--//                    maxValueScale:1.16,scaleSmoothing:0.01,grid:{fillStyle:'#8cd7fb',strokeStyle:'#15c2cc',-->
+<!--//                        sharpLines:true},labels:{fillStyle:'#000000',fontSize:18,precision:0},timestampFormatter:SmoothieChart.timeFormatter,-->
+<!--//                    maxValue:10000,minValue:-10000}),-->
+<!--//                        canvas = document.getElementById('smoothie-chart'),-->
+<!--//                        series = new TimeSeries();-->
+<!--//-->
+<!--//                chart.addTimeSeries(series, {lineWidth:2.5,strokeStyle:'#8080c0'});-->
+<!--//                chart.streamTo(canvas, 0);-->
+<!--//-->
+               <!--var smoothie = new SmoothieChart();-->
+                <!--smoothie.addTimeSeries(line1, { strokeStyle: 'rgb(0, 255, 0)',  lineWidth: 3 });//fillStyle: 'rgba(0, 255, 0, 0.4)',-->
+                <!--smoothie.addTimeSeries(line2, { strokeStyle: 'rgb(255, 0, 255)', lineWidth: 3 });//, fillStyle: 'rgba(255, 0, 255, 0.3)'-->
+                <!--smoothie.addTimeSeries(line3, { strokeStyle: 'rgb(255, 0, 100)', lineWidth: 3 }); //, fillStyle: 'rgba(255, 0, 100, 0.3)'-->
+                <!--smoothie.streamTo(document.getElementById("mycanvas4"));-->
+            <!--})();-->
+            <!--//-->
+            <!--//            Another, more common way to handle this problem is to take advantage of-->
+            <!--// of the way that JavaScript handles variable scope within functions.-->
+            <!--// For example, create an anonymous function, declare all of your code-->
+            <!--// inside that function, then call the function at the end of the-->
+            <!--// declaration by putting () at the end of the declaration. For example:-->
+
+
+        <!--</script>-->
+
+
+
+</body>
+</html>
+
+<body>
+<!--##################################################chart -->
+<!--<div id="chart_div" style="width: 400px; height: 120px;"></div>-->
+<!--<div id="donutchart" style="width: 800px; height: 500px;"></div>-->
+</body>
+</html>
+
+
+<!--<html>-->
+<!--<head>-->
+
+
+<!--//this will not work, it need internet connection-->
+    <!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>-->
+    <!--<script type="text/javascript">-->
+       <!--// google.charts.load('visualization', {'packages':['gauge']});-->
+       <!--google.charts.load('current', { packages: ['corechart', 'gauge'] });-->
+       <!--google.charts.setOnLoadCallback(drawChartb);-->
+       <!--google.charts.setOnLoadCallback(drawChart);-->
+
+        <!--function drawChartb() {-->
+
+            <!--var data = google.visualization.arrayToDataTable([-->
+                <!--['Label', 'Value'],-->
+                <!--['Port 1', 70],-->
+                <!--['Port 2', 70],-->
+                <!--['Port 3', 70]-->
+            <!--]);-->
+
+            <!--var options = {-->
+                <!--width: 400, height: 120,-->
+                <!--redFrom: 90, redTo: 100,-->
+                <!--yellowFrom:75, yellowTo: 90,-->
+                <!--minorTicks: 5-->
+            <!--};-->
+            <!--var chart = new google.visualization.Gauge(document.getElementById('chart_div'));-->
+            <!--chart.draw(data, options);-->
+            <!--setInterval(function() {-->
+                <!--data.setValue(0, 1, window.Power_chart1.Port1P);-->
+                <!--data.setValue(1, 1, window.Power_chart1.Port2P);-->
+                <!--data.setValue(2, 1, window.Power_chart1.Port3P);-->
+                <!--chart.draw(data, options);-->
+
+            <!--}, 1000);-->
+        <!--}-->
+
+        <!--function drawChart() {-->
+            <!--var data = google.visualization.arrayToDataTable([-->
+                <!--['Task', 'Hours per Day'],-->
+                <!--['Port 1',     10],-->
+                <!--['Port 2',      10],-->
+                <!--['Port 3',  10]-->
+            <!--]);-->
+
+            <!--var options = {-->
+                <!--title: 'Pie Chart Input Ports',-->
+                <!--pieHole: 0.4,-->
+            <!--};-->
+
+            <!--var chart = new google.visualization.PieChart(document.getElementById('donutchart'));-->
+            <!--chart.draw(data, options);-->
+            <!--setInterval(function() {-->
+                <!--data.setValue(2, 1, window.Power_chart1.Port3P);-->
+                <!--data.setValue(1, 1, window.Power_chart1.Port2P);-->
+                <!--data.setValue(0, 1, window.Power_chart1.Port1P);-->
+                <!--chart.draw(data, options);-->
+            <!--}, 1000);-->
+
+
+        <!--}-->
+
+
+
+
+    <!--</script>-->
+<!--</head>-->
+<!--<body>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!--********************************** comments charts under here*****************************-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- start: Meta -->
+    <meta charset="utf-8">
+
+    <meta name="description" content="Bootstrap Metro Dashboard">
+    <meta name="author" content="Dennis Ji">
+    <meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <!-- end: Meta -->
+
+    <!-- start: Mobile Specific -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- end: Mobile Specific -->
+
+    <!-- start: CSS -->
+    <link id="bootstrap-style" href="Bootstrap_Metro_Dashboard-master/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Bootstrap_Metro_Dashboard-master/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link id="base-style" href="Bootstrap_Metro_Dashboard-master/css/style.css" rel="stylesheet">
+    <link id="base-style-responsive" href="Bootstrap_Metro_Dashboard-master/css/style-responsive.css" rel="stylesheet">
+    <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>-->
+    <!-- end: CSS -->
+
+</head>
+
+<body>
+<!-- start: Header -->
+
+
+</div>
+</div>
+<!-- start: Header -->
+
+<div class="container-fluid-full">
+    <div class="row-fluid">
+
+
+
+        <noscript>
+            <div class="alert alert-block span10">
+                <h4 class="alert-heading">Warning!</h4>
+                <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+            </div>
+        </noscript>
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  chart disabled @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+        <!--<div class="box">-->
+            <!--<div class="box-header">-->
+                <!--<h2><i class="halflings-icon list-alt"></i><span class="break"></span>Chart with points</h2>-->
+                <!--<div class="box-icon">-->
+                    <!--<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>-->
+                    <!--<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>-->
+                    <!---->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="box-content">-->
+                <!--<div id="sincos"  class="center" style="height:300px;" ></div>-->
+                <!--<p id="hoverdata">Mouse position at (<span id="x">0</span>, <span id="y">0</span>). <span id="clickdata"></span></p>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="row-fluid sortable">-->
+            <!--<div class="box span12">-->
+                <!--<div class="box-header">-->
+                    <!--<h2><i class="halflings-icon list-alt"></i><span class="break"></span>Port 1 Power</h2>-->
+                    <!--<br>-->
+                    <!--<div class="box-icon">-->
+                        <!--<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>-->
+                        <!--<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>-->
+                        <!---->
+                        <!--<br>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="box-content">-->
+                    <!--<div id="realtimechart" style="height:190px;"></div>-->
+                    <!--<p>You can update a chart periodically to get a real-time effect by using a timer to insert the new data in the plot and redraw it.</p>-->
+                    <!--<p>Time between updates: <input id="updateInterval" type="text" value="" style="text-align: right; width:5em"> milliseconds</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>&lt;!&ndash;/row&ndash;&gt;-->
+
+</div>
+    </div><!--/.fluid-container-->
+    <!-- end: Content -->
+
+<div class="modal hide fade" id="myModal">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3>Settings</h3>
+    </div>
+    <div class="modal-body">
+        <p>Here settings can be configured...</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+        <a href="#" class="btn btn-primary">Save changes</a>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+
+
+<!-- start: JavaScript-->
+<!-- -->
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery-1.9.1.min.js"></script>
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery-migrate-1.0.0.min.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery-ui-1.10.0.custom.min.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.ui.touch-punch.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/modernizr.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/bootstrap.min.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.cookie.js"></script>
+
+<script src='Bootstrap_Metro_Dashboard-master/js/fullcalendar.min.js'></script>
+
+<script src='Bootstrap_Metro_Dashboard-master/js/jquery.dataTables.min.js'></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/excanvas.js"></script>
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.flot.js"></script>
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.flot.pie.js"></script>
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.flot.stack.js"></script>
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.flot.resize.min.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.chosen.min.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.uniform.min.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.cleditor.min.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.noty.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.elfinder.min.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.raty.min.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.iphone.toggle.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.uploadify-3.1.min.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.gritter.min.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.imagesloaded.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.masonry.min.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.knob.modified.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/jquery.sparkline.min.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/counter.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/retina.js"></script>
+
+<script src="Bootstrap_Metro_Dashboard-master/js/custom.js"></script>
+<!--<script src="js/livedata_rev3.js"></script>-->
+<!-- end: JavaScript-->
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Spin-off of "Using SQLite inside a Webpage"</title>
+</head>
+<body>
+
+  <h1>Todo list</h1>
+  <form id="todo-form" target="self" method="get">
+    
+    <label>What should you do?
+       <input type="text" id="todo-input">
+    </label>
+    
+    <button type="submit">Store</button>
+	<label id="testing_1" > </label>
+ 
+  </form>
+  
+  <h1>All todos:</h1>
+  <ul id="todo-list">
+  </ul>
+  
+  <script src='https://cdn.rawgit.com/kripken/sql.js/master/js/sql.js'></script>
+<script>
+    
+    /***** DATABASE LOGIC **********
+    
+      The following code would typically be run on a server,
+      so that the database would be persisted on the server 
+      across user sessions. 
+      We don't usually use SQLite inside a webpage
+      since we can just as easily store inside JavaScript objects,
+      and using SQLite is less performant.
+    */
+  
+    // Creates the db and table
+   // var db = new SQL.Database();
+   // db.run("CREATE TABLE todos (id INTEGER PRIMARY KEY AUTOINCREMENT, item TEXT);");
+  
+    // Expects a todo (string) and inserts in db
+   // var insertTodo = function(todo) {db.run("INSERT INTO todos (item) VALUES (?)", [todo]);  
+   // };
+  
+		  var xhr = new XMLHttpRequest();
+		xhr.open('GET', '/Database/logDB', true);
+		xhr.responseType = 'arraybuffer';
+		var db = new SQL.Database(); 
+		xhr.onload = function(e) {
+		  var uInt8Array = new Uint8Array(this.response);
+		   db = new SQL.Database(uInt8Array);
+		 // var contents = db.exec("SELECT datetime,name,value FROM log   WHERE name like '%Port 1 Power Total%' and datetime='2016-06-14 21:33' ");
+		  // contents is now [{columns:['col1','col2',...], values:[[first row], [second row], ...]}]
+		  
+		  var results = db.exec("SELECT datetime,name,value FROM log   WHERE datetime like '%2016-06-14 21:33%'");
+		   var listtest = document.getElementById("testing_1"); 
+			   listtest.innerHTML = results[0].values[0][2]; //here we are taking the value in the result and displaying on the webpage
+		  
+		};
+		xhr.send();
+		  
+  
+  
+    // Return a list of todos (array of strings)
+    var getAllTodos = 
+		function() {
+		  var results = db.exec("SELECT datetime,name,value FROM log   WHERE datetime like '%2016-06-14 21:33%'");
+		    // var results = db.exec("SELECT datetime,name,value FROM log   WHERE datetime like '%2016-06-14 21:33%'");
+		     var listtest = document.getElementById("testing_1"); 
+			   listtest.innerHTML = results[0].values[0][2]; //here we are taking the value in the result and displaying on the webpage
+		  var todos = [];
+		  for (var i = 0; i < results[0].values.length; i++) {
+			todos.push(results[0].values[i]);
+		  }
+		  return todos;
+		};
+    
+  
+    /***** CLIENT LOGIC **********
+    
+     The following code would typically be on a webpage,
+      (like it is here) but it'd make AJAX calls to the database
+      instead of directly accessing the DB on the page.
+    */ 
+  
+    // Displays a list of todos (array of strings) in an <ul>
+    var displayTodos = 
+			function(todos) {
+			   var list = document.getElementById("todo-list");
+			   list.innerHTML = "";
+			   for (var i = 0; i < todos.length; i++) {
+				 var listItem = document.createElement('li'); //creat element li and put it into listitem
+				 listItem.innerText = todos[i]; //copy the first value and put it into listItem
+				 list.appendChild(listItem); //
+			   }
+			};
+   
+    // Hooks up the submit button on the form to 
+    //  a function that tells the DB to insert it
+    //  and updates the list according to current DB
+    var form = document.getElementById("todo-form");
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+       // insertTodo(document.getElementById("todo-input").value);
+        displayTodos(getAllTodos());
+        form.reset();
+    });
+    
+</script>
+  
+</body>
+</html>

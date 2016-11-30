@@ -1,5 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+	
+	    
+<style>
+/*table, th, td {*/
+    /*border: 2px solid black;*/
+/*}*/
+table {
+    width:100%;
+}
+table, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align-last: right;
+}
+th{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align-last: center ;
+}
+
+/* Apply padding to td elements that are direct children of the tr element. */
+tr.spaceUnder > td
+{
+    padding-top: 1em;
+}
+/*th, td {*/
+    /*padding: 5px;*/
+    /*text-align: center;*/
+/*}*/
+
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;
+}
+#section {
+
+    float:left;
+    padding:10px;
+}
+#article {
+
+    float:left;
+    padding:10px;
+}
+#footer {
+    background-color:white;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;
+}
+#aside {
+
+    float:right;
+    padding:10px;
+}
+
+
+/*table#table_1 {*/
+    /*width: 100%;*/
+    /*background-color: #f1f1c1;*/
+
+/*}*/
+
+/*table#table_1 th {*/
+    /*padding: 5px;*/
+    /*text-align: right;*/
+/*}*/
+/*div.relative {*/
+    /*position: relative;*/
+    /*width: 450px;*/
+    /*height: 200px;*/
+    /*!*border: 3px solid #73AD21;*!*/
+/*}*/
+
+#left, #left1, #left2, #left3 {
+    float: left;
+    position: relative;
+    margin-right: 85px;
+    background-color: red;
+}
+
+#right {
+    float: right;
+    position: relative;
+    text-align: left;
+    width: 200px;
+    background-color: yellow;
+}
+</style>
+
+
+
+	
+	
+	
+	
+	
+	
+	
 	<head>
 
 		<!-- start: Meta -->
@@ -39,290 +149,140 @@
 	</head>
 
 <body>
-		<!-- start: Header -->
-	<div class="navbar">
-		<div class="navbar-inner">
-			<div class="container-fluid">
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
-					<span class="icon-bar"> </span>
-					<span class="icon-bar"> </span>
-					<span class="icon-bar"> </span>
-				</a>
-				
-				<a class="brand" href="index.html"><span><img src="img/Spawar/lextm3.png" alt="Mountain View" >  SPAWAR</span></a>
-				
-				<!-- start: Header Menu -->
-				<div class="nav-no-collapse header-nav">
-					<ul class="nav pull-right">
-						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white warning-sign"></i>
-							</a>
-							<ul class="dropdown-menu notifications">
-								<li class="dropdown-menu-title">
- 									<span>You have 11 notifications</span>
-									<a href="#refresh"><i class="icon-repeat"></i></a>
-								</li>	
-                            	<li>
-                                    <a href="#">
-										<span class="icon blue"><i class="icon-user"></i></span>
-										<span class="message">New user registration</span>
-										<span class="time">1 min</span> 
-                                    </a>
-                                </li>
-								<li>
-                                    <a href="#">
-										<span class="icon green"><i class="icon-comment-alt"></i></span>
-										<span class="message">New comment</span>
-										<span class="time">7 min</span> 
-                                    </a>
-                                </li>
-								<li>
-                                    <a href="#">
-										<span class="icon green"><i class="icon-comment-alt"></i></span>
-										<span class="message">New comment</span>
-										<span class="time">8 min</span> 
-                                    </a>
-                                </li>
-								<li>
-                                    <a href="#">
-										<span class="icon green"><i class="icon-comment-alt"></i></span>
-										<span class="message">New comment</span>
-										<span class="time">16 min</span> 
-                                    </a>
-                                </li>
-								<li>
-                                    <a href="#">
-										<span class="icon blue"><i class="icon-user"></i></span>
-										<span class="message">New user registration</span>
-										<span class="time">36 min</span> 
-                                    </a>
-                                </li>
-								<li>
-                                    <a href="#">
-										<span class="icon yellow"><i class="icon-shopping-cart"></i></span>
-										<span class="message">2 items sold</span>
-										<span class="time">1 hour</span> 
-                                    </a>
-                                </li>
-								<li class="warning">
-                                    <a href="#">
-										<span class="icon red"><i class="icon-user"></i></span>
-										<span class="message">User deleted account</span>
-										<span class="time">2 hour</span> 
-                                    </a>
-                                </li>
-								<li class="warning">
-                                    <a href="#">
-										<span class="icon red"><i class="icon-shopping-cart"></i></span>
-										<span class="message">New comment</span>
-										<span class="time">6 hour</span> 
-                                    </a>
-                                </li>
-								<li>
-                                    <a href="#">
-										<span class="icon green"><i class="icon-comment-alt"></i></span>
-										<span class="message">New comment</span>
-										<span class="time">yesterday</span> 
-                                    </a>
-                                </li>
-								<li>
-                                    <a href="#">
-										<span class="icon blue"><i class="icon-user"></i></span>
-										<span class="message">New user registration</span>
-										<span class="time">yesterday</span> 
-                                    </a>
-                                </li>
-                                <li class="dropdown-menu-sub-footer">
-                            		<a>View all notifications</a>
-								</li>	
-							</ul>
-						</li>
-						<!-- start: Notifications Dropdown -->
-						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white tasks"></i>
-							</a>
-							<ul class="dropdown-menu tasks">
-								<li class="dropdown-menu-title">
- 									<span>You have 17 tasks in progress</span>
-									<a href="#refresh"><i class="icon-repeat"></i></a>
-								</li>
-								<li>
-                                    <a href="#">
-										<span class="header">
-											<span class="title">iOS Development</span>
-											<span class="percent"></span>
-										</span>
-                                        <div class="taskProgress progressSlim red">80</div> 
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-										<span class="header">
-											<span class="title">Android Development</span>
-											<span class="percent"></span>
-										</span>
-                                        <div class="taskProgress progressSlim green">47</div> 
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-										<span class="header">
-											<span class="title">ARM Development</span>
-											<span class="percent"></span>
-										</span>
-                                        <div class="taskProgress progressSlim yellow">32</div> 
-                                    </a>
-                                </li>
-								<li>
-                                    <a href="#">
-										<span class="header">
-											<span class="title">ARM Development</span>
-											<span class="percent"></span>
-										</span>
-                                        <div class="taskProgress progressSlim greenLight">63</div> 
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-										<span class="header">
-											<span class="title">ARM Development</span>
-											<span class="percent"></span>
-										</span>
-                                        <div class="taskProgress progressSlim orange">80</div> 
-                                    </a>
-                                </li>
-								<li>
-                            		<a class="dropdown-menu-sub-footer">View all tasks</a>
-								</li>	
-							</ul>
-						</li>
-						<!-- end: Notifications Dropdown -->
-						<!-- start: Message Dropdown -->
-						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white envelope"></i>
-							</a>
-							<ul class="dropdown-menu messages">
-								<li class="dropdown-menu-title">
- 									<span>You have 9 messages</span>
-									<a href="#refresh"><i class="icon-repeat"></i></a>
-								</li>	
-                            	<li>
-                                    <a href="#">
-										<span class="avatar"><img src="img/avatar.jpg" alt="Avatar"></span>
-										<span class="header">
-											<span class="from">
-										    	LEX TM3
-										     </span>
-											<span class="time">
-										    	6 min
-										    </span>
-										</span>
-                                        <span class="message">
-                                            Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
-                                        </span>  
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-										<span class="avatar"><img src="img/avatar.jpg" alt="Avatar"></span>
-										<span class="header">
-											<span class="from">
-										    	LEX TM3
-										     </span>
-											<span class="time">
-										    	56 min
-										    </span>
-										</span>
-                                        <span class="message">
-                                            Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
-                                        </span>  
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-										<span class="avatar"><img src="img/avatar.jpg" alt="Avatar"></span>
-										<span class="header">
-											<span class="from">
-										    	LEX TM3
-										     </span>
-											<span class="time">
-										    	3 hours
-										    </span>
-										</span>
-                                        <span class="message">
-                                            Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
-                                        </span>  
-                                    </a>
-                                </li>
-								<li>
-                                    <a href="#">
-										<span class="avatar"><img src="img/avatar.jpg" alt="Avatar"></span>
-										<span class="header">
-											<span class="from">
-										    	LEX TM3
-										     </span>
-											<span class="time">
-										    	yesterday
-										    </span>
-										</span>
-                                        <span class="message">
-                                            Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
-                                        </span>  
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-										<span class="avatar"><img src="img/avatar.jpg" alt="Avatar"></span>
-										<span class="header">
-											<span class="from">
-										    	LEX TM3
-										     </span>
-											<span class="time">
-										    	Jul 25, 2012
-										    </span>
-										</span>
-                                        <span class="message">
-                                            Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
-                                        </span>  
-                                    </a>
-                                </li>
-								<li>
-                            		<a class="dropdown-menu-sub-footer">View all messages</a>
-								</li>	
-							</ul>
-						</li>
-						<!-- end: Message Dropdown -->
-						<li>
-							<a class="btn" href="#">
-								<i class="halflings-icon white wrench"></i>
-							</a>
-						</li>
-						<!-- start: User Dropdown -->
-						<li class="dropdown">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i> LEX TM3
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								<li class="dropdown-menu-title">
- 									<span>Account Settings</span>
-								</li>
-								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
-								<li><a href="login.html"><i class="halflings-icon off"></i> Logout</a></li>
-							</ul>
-						</li>
-						<!-- end: User Dropdown -->
-					</ul>
+<!-- start: Header login user -->
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse"> <span class="icon-bar"> </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> </a>
+
+					<a class="brand" href="index.html"><span><img src="img/Spawar/lextm3_3.png" alt="Mountain View" > SPAWAR</span></a>
+
+					<!-- start: Header Menu alarms -->
+					<div class="nav-no-collapse header-nav">
+						<ul class="nav pull-right">
+							<li class="dropdown hidden-phone">
+								<a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> <i class="halflings-icon white warning-sign"></i> </a>
+								<ul class="dropdown-menu notifications">
+									<li class="dropdown-menu-title">
+										<span>Alarms</span>
+										<a href="#refresh"><i class="icon-repeat"></i></a>
+									</li>
+									<li>
+										<a href="#"> <span class="icon red"><i class="icon-fire"></i></span> <span class="message">Alarm 1</span> <span class="time">1 min</span> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="icon red"><i class="icon-star"></i></span> <span class="message">Alarm 1</span> <span class="time">7 min</span> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="icon red"><i class="icon-fire"></i></span> <span class="message">Alarm </span> <span class="time">8 min</span> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="icon red"><i class="icon-fire"></i></span> <span class="message">Alarm 3</span> <span class="time">16 min</span> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="icon red"><i class="icon-fire"></i></span> <span class="message">Alarm 4</span> <span class="time">36 min</span> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="icon red"><i class="icon-fire"></i></span> <span class="message">Alarm 5</span> <span class="time">1 hour</span> </a>
+									</li>
+									<li class="warning">
+										<a href="#"> <span class="icon red"><i class="icon-fire"></i></span> <span class="message">Alarm 6</span> <span class="time">2 hour</span> </a>
+									</li>
+									<li class="warning">
+										<a href="#"> <span class="icon red"><i class="icon-fire"></i></span> <span class="message">Alarm 7</span> <span class="time">6 hour</span> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="icon green"><i class="icon-fire"></i></span> <span class="message">Alarm 8</span> <span class="time">yesterday</span> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="icon blue"><i class="icon-fire"></i></span> <span class="message"> </span> <span class="time"> </span> </a>
+									</li>
+									<li class="dropdown-menu-sub-footer">
+										<a>View all notifications</a>
+									</li>
+								</ul>
+							</li>
+							
+							<!-- start: Notifications Dropdown -->
+							<li class="dropdown hidden-phone">
+								<a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> <i class="halflings-icon white tasks"></i> </a>
+								<ul class="dropdown-menu tasks">
+									<li class="dropdown-menu-title">
+										<span>Power Overview</span>
+										<a href="#refresh"><i class="icon-repeat"></i></a>
+									</li>
+									<li>
+										<a href="#"> <span class="header"> <span class="title">Grid</span> <span class="percent"></span> 30 kW</span>
+										<div class="taskProgress progressSlim purple">
+											55
+										</div> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="header"> <span class="title">M2G-V2G EVSE</span> <span class="percent"></span> </span>
+										<div class="taskProgress progressSlim blueDark">
+											47
+										</div> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="header"> <span class="title">M2G-BATT</span> <span class="percent"></span> </span>
+										<div class="taskProgress progressSlim blue">
+											32
+										</div> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="header"> <span class="title">PV Array</span> <span class="percent"></span> </span>
+										<div class="taskProgress progressSlim green">
+											63
+										</div> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="header"> <span class="title">Generator</span> <span class="percent"></span> </span>
+										<div class="taskProgress progressSlim olive">
+											80
+										</div> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="header"> <span class="title">Load</span> <span class="percent"></span> </span>
+										<div class="taskProgress progressSlim orange">
+											80
+										</div> </a>
+									</li>
+									<li>
+										<a class="dropdown-menu-sub-footer">View all tasks</a>
+									</li>
+								</ul>
+							</li>
+							<!-- end: Notifications Dropdown -->
+							<!-- start: Message Dropdown -->
+						
+							<!-- end: Message Dropdown -->
+							<li>
+								<a class="btn" href="#"> <i class="halflings-icon white wrench"></i> </a>
+							</li>
+							<!-- start: User Dropdown -->
+							<li class="dropdown">
+								<a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> <i class="halflings-icon white user"></i> LEX TM3 <span class="caret"></span> </a>
+								<ul class="dropdown-menu">
+									<li class="dropdown-menu-title">
+										<span>Account Settings</span>
+									</li>
+									<li>
+										<a href="#"><i class="halflings-icon user"></i> Profile</a>
+									</li>
+									<li>
+										<a href="login.html"><i class="halflings-icon off"></i> Logout</a>
+									</li>
+								</ul>
+							</li>
+							<!-- end: User Dropdown -->
+						</ul>
+					</div>
+					<!-- end: Header Menu -->
+
 				</div>
-				<!-- end: Header Menu -->
-				
 			</div>
 		</div>
-	</div>
-	<!-- start: Header -->
+			<!-- start: Header -->
 	
 		<div class="container-fluid-full">
 		<div class="row-fluid">
@@ -338,13 +298,13 @@
 								<a href="index.html"><i class="icon-bar-chart"></i><span class="hidden-tablet"> <font size="4">OVERVIEW</font> </span></a>
 							</li>
 							<li>
-								<a href="Overview_2.html"><i class="icon-building"></i><span class="hidden-tablet"><font size="4">System Layout </font> </span></a>
+								<a href="Overview_3.html"><i class="icon-building"></i><span class="hidden-tablet"><font size="4">System Layout </font> </span></a>
 							</li>
 							<li>
-								<a href="evse.html"><i class="icon-truck"></i><span class="hidden-tablet"><font size="4">M2G-V2G EVSE</font> </span></a>
+								<a href="evse_r1.html"><i class="icon-truck"></i><span class="hidden-tablet"><font size="4">M2G-V2G EVSE</font> </span></a>
 							</li>
 							<li>
-								<a href="M2G_BATT.html"><i class="icon-columns"></i><span class="hidden-tablet"><font size="4">M2G-BATT</font> </span></a>
+								<a href="M2G_BATT_r1.html"><i class="icon-columns"></i><span class="hidden-tablet"><font size="4">M2G-BATT</font> </span></a>
 							</li>
 							<li>
 								<a href="vim_eim.html"><i class="icon-dashboard"></i><span class="hidden-tablet"><font size="4">VEHICLE</font> </span></a>
@@ -353,13 +313,13 @@
 								<a class="dropmenu" href="#"><i class="icon-leaf"></i><span class="hidden-tablet"><font size="4">PV ARRAY</font> </span><span class="label label-important"> 3 </span></a>
 								<ul>
 									<li>
-										<a class="submenu" href="SolarEnergy.html"><i class="icon-file-alt"></i><span class="hidden-tablet"><font size="4">Energy</font> </span></a>
+										<a class="submenu" href="SolarEnergy_r1.html"><i class="icon-file-alt"></i><span class="hidden-tablet"><font size="4">Energy</font> </span></a>
 									</li>
 									<li>
-										<a class="submenu" href="SolarEnergy.html"><i class="icon-file-alt"></i><span class="hidden-tablet"><font size="4">Sub Menu 2</font> </span></a>
+										<a class="submenu" href="SolarEnergy_r1.html"><i class="icon-file-alt"></i><span class="hidden-tablet"><font size="4">Sub Menu 2</font> </span></a>
 									</li>
 									<li>
-										<a class="submenu" href="SolarEnergy.html"><i class="icon-file-alt"></i><span class="hidden-tablet"><font size="4">Sub Menu 3</font> </span></a>
+										<a class="submenu" href="SolarEnergy_r1.html"><i class="icon-file-alt"></i><span class="hidden-tablet"><font size="4">Sub Menu 3</font> </span></a>
 									</li>
 								</ul>
 							</li>
@@ -367,10 +327,10 @@
 								<a href="vim_eim.html"><i class="icon-edit"></i><span class="hidden-tablet"><font size="4">VIM-EIM</font> </span></a>
 							</li>
 							<li>
-								<a href="config.html"><i class="icon-cogs"></i><span class="hidden-tablet"><font size="4">Configuration</font> </span></a>
+								<a href="config.html"><i class="icon-cogs"></i><span class="hidden-tablet"><font size="4">CONFIGURATION</font> </span></a>
 							</li>
 							<li>
-								<a href="alarms.html"><i class="icon-fire"></i><span class="hidden-tablet"><font size="4">Alarms</font> </span></a>
+								<a href="alarms.html"><i class="icon-fire"></i><span class="hidden-tablet"><font size="4">ALARMS</font> </span></a>
 							</li>
 							<li>
 								<a href="logfile.html"><i class="icon-folder-open"></i><span class="hidden-tablet"><font size="4">Log File</font> </span></a>
@@ -664,7 +624,7 @@
 			
 			</div>
 			
-	
+	<!-- one line trend -->
 			<div class="row-fluid">
 					<div class="widget yellow span5 noMargin" onTablet="span12" onDesktop="span5">
 						<h2><span class="glyphicons fire"><i></i></span> Solar Power</h2>
@@ -694,15 +654,164 @@
 						<h2><span class="glyphicons fire"><i></i></span> Battery Power</h2>
 						<hr>
 							<div class="content">
-								 <div id="batteryPowerChart" style="height:224px;"></div>
+								 <div id="batteryPowerChart" style="height:224px;"> </div>
 							</div>
 					</div>
 			</div>
-			
-			
-
+				
+      <!--</div>-->
+<br>
 		
-
+		
+		<!-- sample of three boxes in row and each box can be hiden -->
+		<div class="row-fluid">
+				
+				<div class="box black span4" onTablet="span6" onDesktop="span4" style="width:800px;">
+					<div class="box-header">
+						<h2><i class="halflings-icon white list"></i><span class="break"></span>Battery Managment System Data</h2>
+						<div class="box-icon">
+							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						<ul class="dashboard-list metro black">
+						
+						 <table class="w3-table w3-striped w3-boardered w3-card-4" align="center" id="table_1" >
+								<tr class="w3-blue">
+									<th style="text-align:center" colspan="7"  > Input Ports</th>
+						
+								</tr>
+						
+								<tr class="w3-">
+						            <th width="14.28%" class="w3-blue" >Ports</th>
+									<th width="14.28%" > Frequency</th>
+									<th width="14.28%" > Voltage </th>
+						            <th width="14.28%" > Current</th>
+						            <th width="14.28%" > Power</th>
+						            <th width="19%" > Power Load %</th>
+						            <th width="10%" > Capacity </th>
+						
+								</tr>
+						
+								<tr>
+						            <th class="w3-blue">Port 1 </th>
+						            <td> </td>
+						            <td > </td>
+						            <td > </td>
+						            <td > </td>
+						            <td> <div class='block'>
+						                <span id="port1pa"> </span>
+						                <progress class='inline-block' max='60' value='50' id="port1pp"></progress>
+						
+						                <!--<script>-->
+						                    <!--document.getElementById('port1p').innerHTML =   window.Power_chart1.Port1P;-->
+						                    <!--document.getElementById('port1pa').innerHTML =   window.Power_chart1.Port1P + " %";-->
+						                <!--</script>-->
+						            </div></td>
+						            <td > </td>
+								</tr>
+						
+								<tr>
+						            <th class="w3-blue">Port 2 </th>
+						            <td> </td>
+						            <td> </td>
+						            <td> </td>
+						            <td> </td>
+						            <td> <div class='block'>
+						                <span id="port2pa"> </span>
+						                <progress class='inline-block' max='60' value='50' id="port2pp"></progress>
+						            </div> </td>
+						            <td > </td>
+						
+						    </tr>
+						
+								<tr>
+						            <th   class="w3-blue">Port 3 </th>
+						            <td  class="w3-grey"> </td>
+						            <td  class="w3-grey"> </td>
+						            <td  class="w3-grey"> </td>
+						            <td  class="w3-grey"> </td>
+						            <td  class="w3-grey"> <div class='block'>
+						                <span id="port3pa"> </span>
+						                <progress class='inline-block' max='60' value='50' id="port3pp"></progress>
+						            </div> </td>
+						            <td > </td>
+						    </tr>
+						
+								</table>
+   
+						
+						
+						
+						
+						
+						</ul>
+					</div>
+				</div><!--/span-->
+				
+				<div class="box black span4 noMargin" onTablet="span12" onDesktop="span4">
+					<div class="box-header">
+						<h2><i class="halflings-icon white check"></i><span class="break"></span>To Do List Metro Style</h2>
+						<div class="box-icon">
+							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						<div class="todo metro">
+							<ul class="todo-list">
+								<li class="red">
+									<a class="action icon-check-empty" href="#"></a>	
+									Windows Phone 8 App 
+									<strong>today</strong>
+								</li>
+								<li class="red">
+									<a class="action icon-check-empty" href="#"></a>
+									New frontend layout
+									<strong>today</strong>
+								</li>
+								<li class="yellow">
+									<a class="action icon-check-empty" href="#"></a>
+									Hire developers
+									<strong>tommorow</strong>
+								</li>
+								<li class="yellow">
+									<a class="action icon-check-empty" href="#"></a>
+									Windows Phone 8 App
+									<strong>tommorow</strong>
+								</li>
+								<li class="green">
+									<a class="action icon-check-empty" href="#"></a>
+									New frontend layout
+									<strong>this week</strong>
+								</li>
+								<li class="green">
+									<a class="action icon-check-empty" href="#"></a>
+									Hire developers
+									<strong>this week</strong>
+								</li>
+								<li class="blue">
+									<a class="action icon-check-empty" href="#"></a>
+									New frontend layout
+									<strong>this month</strong>
+								</li>
+								<li class="blue">
+									<a class="action icon-check-empty" href="#"></a>
+									Hire developers
+									<strong>this month</strong>
+								</li>
+							</ul>
+						</div>	
+					</div>
+				</div>
+			
+			</div>
+			
+			
+			
+			
 	</div><!--/.fluid-container-->
 	
 			<!-- end: Content -->
@@ -728,7 +837,7 @@
 	<footer>
 
 		<p>
-			<span style="text-align:left;float:left">&copy; 2013 <a href="http://jiji262.github.io/Bootstrap_Metro_Dashboard/" alt="Bootstrap_Metro_Dashboard">Bootstrap Metro Dashboard</a></span>
+			<span style="text-align:left;float:left">&copy; 2016 <a href="http://jiji262.github.io/Bootstrap_Metro_Dashboard/" alt="Bootstrap_Metro_Dashboard">Bootstrap Metro Dashboard</a></span>
 			
 		</p>
 

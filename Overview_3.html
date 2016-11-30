@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<style>
+		/*table, th, td {*/
+		/*border: 2px solid black;*/
+		/*}*/
+		table {
+			width: 100%;
+		}
+		table, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			font-size: 15px;
+		}
+		th {
+			border: 1px solid black;
+			border-collapse: collapse;
+			text-align-last: center;
+		}
+		
+		 td:nth-child(2) {
+		    text-align: right;
+		}
+		 td:nth-child(1) {
+		    text-align: left;
+		}
+		tr:nth-child(even) {
+		    background-color: #dddddd;
+		}
+
+		/* Apply padding to td elements that are direct children of the tr element. */
+		tr.spaceUnder > td {
+			padding-top: 1em;
+		}
+		/*th, td {*/
+		/*padding: 5px;*/
+		/*text-align: center;*/
+		/*}*/
+
+		#header {
+			background-color: black;
+			color: white;
+			text-align: center;
+			padding: 5px;
+		}
+		#nav {
+			line-height: 30px;
+			background-color: #eeeeee;
+			height: 300px;
+			width: 100px;
+			float: left;
+			padding: 5px;
+		}
+		#section {
+
+			float: left;
+			padding: 10px;
+		}
+		#article {
+
+			float: left;
+			padding: 10px;
+		}
+		#footer {
+			background-color: white;
+			color: white;
+			clear: both;
+			text-align: center;
+			padding: 5px;
+		}
+		#aside {
+
+			float: right;
+			padding: 10px;
+		}
+
+		/*table#table_1 {*/
+		/*width: 100%;*/
+		/*background-color: #f1f1c1;*/
+
+		/*}*/
+
+		/*table#table_1 th {*/
+		/*padding: 5px;*/
+		/*text-align: right;*/
+		/*}*/
+		/*div.relative {*/
+		/*position: relative;*/
+		/*width: 450px;*/
+		/*height: 200px;*/
+		/*!*border: 3px solid #73AD21;*!*/
+		/*}*/
+
+		#left, #left1, #left2, #left3 {
+			float: left;
+			position: relative;
+			margin-right: 85px;
+			background-color: red;
+		}
+
+		#right {
+			float: right;
+			position: relative;
+			text-align: left;
+			width: 200px;
+			background-color: yellow;
+		}
+	</style>
+
+	<head>
+		<!-- start: Meta -->
+		<meta charset="utf-8">
+		<title>Lex TM3</title>
+		<meta name="description" content="Bootstrap Metro Dashboard">
+		<meta name="author" content="Dennis Ji">
+		<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+		<!-- end: Meta -->
+
+		<!-- start: Mobile Specific -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- end: Mobile Specific -->
+
+		<!-- start: CSS -->
+		<link id="bootstrap-style" href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link id="base-style" href="css/style.css" rel="stylesheet">
+		<link id="base-style-responsive" href="css/style-responsive.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
+		<!-- end: CSS -->
+
+		<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<link id="ie-style" href="css/ie.css" rel="stylesheet">
+		<![endif]-->
+
+		<!--[if IE 9]>
+		<link id="ie9style" href="css/ie9.css" rel="stylesheet">
+		<![endif]-->
+
+		<!-- start: Favicon -->
+		<link rel="shortcut icon" href="img/favicon.ico">
+		<!-- end: Favicon -->
+
+		<!-- script to pull data from wifi module -->
+		<!-- // --><!-- <script src="js/livedata_rev2.js"></script> -->
+
+		<script src="js/sql.js"></script>
+
+		<!-- JavaScript Library includes -->
+		<script src="../js/jquery.js"></script>
+		<script src="../js/console.js"></script>
+		<script src="js/livedata_rev3.js"></script>
+	</head>
+
+	<body>
+		<!-- start: Header login user -->
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<a class="btn btn-navbar" data-toggle="collapse" > <span class="icon-bar"> </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> </a>
+
+					<a class="brand" href="index.html"><span><img src="img/Spawar/lextm3_3.png" alt="Mountain View" > </span></a>
+
+					<!-- start: Header Menu -->
+					<div class="nav-no-collapse header-nav">
+						<ul class="nav pull-right">
+							<li class="dropdown hidden-phone">
+								<a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> <i class="halflings-icon white warning-sign"></i> </a>
+								<ul class="dropdown-menu notifications">
+									<li class="dropdown-menu-title">
+										<span>Alarms</span>
+										<a href="#refresh"><i class="icon-repeat"></i></a>
+									</li>
+									<li>
+										<a href="#"> <span class="icon red"><i class="icon-fire"></i></span> <span class="message">Alarm 1</span> <span class="time">1 min</span> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="icon red"><i class="icon-star"></i></span> <span class="message">Alarm 1</span> <span class="time">7 min</span> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="icon red"><i class="icon-fire"></i></span> <span class="message">Alarm </span> <span class="time">8 min</span> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="icon red"><i class="icon-fire"></i></span> <span class="message">Alarm 3</span> <span class="time">16 min</span> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="icon red"><i class="icon-fire"></i></span> <span class="message">Alarm 4</span> <span class="time">36 min</span> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="icon red"><i class="icon-fire"></i></span> <span class="message">Alarm 5</span> <span class="time">1 hour</span> </a>
+									</li>
+									<li class="warning">
+										<a href="#"> <span class="icon red"><i class="icon-fire"></i></span> <span class="message">Alarm 6</span> <span class="time">2 hour</span> </a>
+									</li>
+									<li class="warning">
+										<a href="#"> <span class="icon red"><i class="icon-fire"></i></span> <span class="message">Alarm 7</span> <span class="time">6 hour</span> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="icon green"><i class="icon-fire"></i></span> <span class="message">Alarm 8</span> <span class="time">yesterday</span> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="icon blue"><i class="icon-fire"></i></span> <span class="message"> </span> <span class="time"> </span> </a>
+									</li>
+									<li class="dropdown-menu-sub-footer">
+										<a>View all notifications</a>
+									</li>
+								</ul>
+							</li>
+
+							<!-- start: Notifications Dropdown -->
+							<li class="dropdown hidden-phone">
+								<a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> <i class="halflings-icon white tasks"></i> </a>
+								<ul class="dropdown-menu tasks">
+									<li class="dropdown-menu-title">
+										<span>Power Overview</span>
+										<a href="#refresh"><i class="icon-repeat"></i></a>
+									</li>
+									<li>
+										<a href="#"> <span class="header"> <span class="title">Grid</span> <span class="percent"></span> 30 kW</span>
+										<div class="taskProgress progressSlim purple">
+											55
+										</div> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="header"> <span class="title">M2G-V2G EVSE</span> <span class="percent"></span> </span>
+										<div class="taskProgress progressSlim blueDark">
+											47
+										</div> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="header"> <span class="title">M2G-BATT</span> <span class="percent"></span> </span>
+										<div class="taskProgress progressSlim blue">
+											32
+										</div> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="header"> <span class="title">PV Array</span> <span class="percent"></span> </span>
+										<div class="taskProgress progressSlim green">
+											63
+										</div> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="header"> <span class="title">Generator</span> <span class="percent"></span> </span>
+										<div class="taskProgress progressSlim olive">
+											80
+										</div> </a>
+									</li>
+									<li>
+										<a href="#"> <span class="header"> <span class="title">Load</span> <span class="percent"></span> </span>
+										<div class="taskProgress progressSlim orange">
+											80
+										</div> </a>
+									</li>
+									<li>
+										<a class="dropdown-menu-sub-footer">View all tasks</a>
+									</li>
+								</ul>
+							</li>
+							<!-- end: Notifications Dropdown -->
+
+						</ul>
+					</div>
+					<!-- end: Header Menu -->
+
+				</div>
+			</div>
+		</div>
+		<!-- start: Header -->
+
+		<div class="container-fluid-full">
+			<div class="row-fluid">
+
+				<!-- start: Main Menu navigation -->
+				<div id="sidebar-left" class="span2">
+
+					<div class="nav-collapse sidebar-nav">
+						<ul class="nav nav-tabs nav-stacked main-menu">
+
+							<li>
+								<a href="Overview_3.html"><i class="icon-building"></i><span class="hidden-tablet"><font size="4">SYSTEM OVERVIEW</font> </span></a>
+							</li>
+							<li>
+								<a href="Grid_r1.html"><i class="icon-dashboard"></i><span class="hidden-tablet"><font size="4">GRID</font> </span></a>
+							</li>
+							<li>
+								<a href="Generator_r1.html"><i class="icon-dashboard"></i><span class="hidden-tablet"><font size="4">GENERATOR</font> </span></a>
+							</li>
+							<li>
+								<a href="evse_r1.html"><i class="icon-truck"></i><span class="hidden-tablet"><font size="4">M2G-V2G EVSE</font> </span></a>
+							</li>
+							<li>
+								<a href="M2G_BATT_r1.html"><i class="icon-columns"></i><span class="hidden-tablet"><font size="4">M2G-BATT</font> </span></a>
+							</li>
+							<li>
+								<a href="SolarEnergy_r1.html"><i class="icon-leaf"></i><span class="hidden-tablet"><font size="4">PV ARRAY</font> </span></a>
+							</li>
+							<li>
+								<a class="dropmenu" href="#"><i class="icon-dashboard"></i><span class="hidden-tablet"><font size="4">PERFORMANCE</font> </span><span class="label label-important"> 3 </span></a>
+								<ul>
+									<li>
+										<a class="submenu" href="performance_today.html"><i class="icon-file-alt"></i><span class="hidden-tablet"><font size="4">Today</font> </span></a>
+									</li>
+									<li>
+										<a class="submenu" href="performance_yesterday.html"><i class="icon-file-alt"></i><span class="hidden-tablet"><font size="4">Yesterday</font> </span></a>
+									</li>
+									<li>
+										<a class="submenu" href="performance_thisweek.html"><i class="icon-file-alt"></i><span class="hidden-tablet"><font size="4">This Week</font> </span></a>
+									</li>
+									<li>
+										<a class="submenu" href="performance_lastweek.html"><i class="icon-file-alt"></i><span class="hidden-tablet"><font size="4">Last Week</font> </span></a>
+									</li>
+								</ul>
+							</li>
+
+							<li>
+								<a href="Configuration_r1.html"><i class="icon-cogs"></i><span class="hidden-tablet"><font size="4">CONFIGURATION</font> </span></a>
+							</li>
+							<li>
+								<a href="alarms_r1.html"><i class="icon-fire"></i><span class="hidden-tablet"><font size="4">ALARMS</font> </span></a>
+							</li>
+
+						</ul>
+					</div>
+
+				</div>
+				<!-- end: Main Menu -->
+
+				<noscript>
+					<div class="alert alert-block span10">
+						<h4 class="alert-heading">Warning!</h4>
+						<p>
+							You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.
+						</p>
+					</div>
+				</noscript>
+
+				<!-- start: Content title -->
+				<div id="content" class="span10">
+
+									
+					<!--</div>-->
+					<br>
+
+				<!--width: 1250px; height: 1130px; top: 50px; left: 50px;style="position: absolute; "-->
+					<div class="scroll" >
+											<div style="left: 6px; position: absolute; top: 7px; width: 965px; height: 715px;" data-exact-height="715" data-content-padding-horizontal="0" data-content-padding-vertical="0" title="rev9.png" class="s11" id="comp-it60s1zs" data-reactid="it60s1zs">
+												<div style="width: 965px; height: 715px;" id="comp-it60s1zslink" class="s11link" data-reactid="it60s1zs.0">
+													
+												
+													<div style="position: relative; width: 965px; height: 715px;" id="comp-it60s1zsimg" class="s11img" data-reactid="it60s1zs.0.0">
+														<div class="s11imgpreloader" id="comp-it60s1zsimgpreloader" data-reactid="it60s1zs.0.0.0"></div>
+														
+														<img id="comp-it60s1zsimgimage" alt="" src="img/Spawar/overview_rev11.png" style="width: 965px; height: 715px; object-fit: fill;" data-reactid="it60s1zs.0.0.$image">
+														
+													</div>
+													</div>
+												</div>
+											
+											<!-- generator box 210 -->
+
+											<div style="position: absolute; width: 90px; height: 50px; top: 160px; left: 50px; background-color: white; border: 2px solid black;"class="boxed" id="comp-itd5cq0d9903" data-reactid="itd5cq0d9903">
+												<div id="comp-itd5cq0dinlineContent9903" class="s12inlineContent" data-reactid="itd5cq0d9903.0">
+
+													<div style="width: 250px; position: absolute; left: 20px; top: 0px;" class="s3" id="comp-itk58vgx3" data-reactid="itk58vgx3">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"> <font color="black">Generator</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 42px;" class="s3" id="comp-it6164d99903" data-reactid="it6164d99903">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">  </font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 50px; top: 42px;" class="s3" id="comp-it6164da99903" data-reactid="it6164da99903">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">  </font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 28px;" class="s3" id="comp-it64b7yt9903" data-reactid="it64b7yt9903">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">Power:</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 50px; top: 28px;" class="s3" id="comp-it64b7yta9903" data-reactid="it64b7yta9903">
+														<p class="font_7" style="font-size:11px" >
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">30kW </font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 14px;" class="s3" id="comp-it64bwf09903" data-reactid="it64bwf09903">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold;"><span style="font-size:11px"><font color="black">Status:</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 50px; top: 14px;" class="s3" id="comp-it64bwf0a9903" data-reactid="it64bwf0a9903">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold;"><span style="font-size:11px"><font color="black">ON</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 56px;" class="s3" id="comp-itd58iia19903" data-reactid="itd58iia19903">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">        </font></span></span></span>
+														</p>
+													</div>
+
+												</div>
+											</div>
+
+											<!-- grid box -->
+
+											<div style="position: absolute; width: 90px; height: 50px; top: 390px; left: 50px; background-color: white; border: 2px solid black; " class="boxed" id="comp-itd5cq0d2" data-reactid="itd5cq0d2">
+												<div id="comp-itd5cq0dinlineContent2" class="s12inlineContent" data-reactid="itd5cq0d2.0">
+
+													<div style="width: 250px; position: absolute; left: 33px; top: 0px;" class="s3" id="comp-itk58vgx2" data-reactid="itk58vgx2">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"> <font color="black">Grid</font></span></span></span>
+														</p>
+													</div>											
+													<div style="width: 250px; position: absolute; left: 3px; top: 28px;" class="s3" id="comp-it64b7yt2" data-reactid="it64b7yt2">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">Power:</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 50px; top: 28px;" class="s3" id="comp-it64b7yta2" data-reactid="it64b7yta2">
+														<p class="font_7" style="font-size:11px" >
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">30kW </font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 14px;" class="s3" id="comp-it64bwf02" data-reactid="it64bwf02">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold;"><span style="font-size:11px"><font color="black">Status:</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 50px; top: 14px;" class="s3" id="comp-it64bwf0a2" data-reactid="it64bwf0a2">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold;"><span style="font-size:11px"><font color="black">ON</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 56px;" class="s3" id="comp-itd58iia12" data-reactid="itd58iia12">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">       </font></span></span></span>
+														</p>
+													</div>
+
+												</div>
+											</div>
+
+											<!-- solar box -->
+
+											<div style="position: absolute; width: 90px; height: 50px; top: 560px; left: 50px; background-color: white; border: 2px solid black; " class="s12" id="comp-itd5cq0d3" data-reactid="itd5cq0d3">
+												<div id="comp-itd5cq0dinlineContent3" class="s12inlineContent" data-reactid="itd5cq0d3.0">
+
+													<div style="width: 250px; position: absolute; left: 32px; top: 0px;" class="s3" id="comp-itk58vgx3" data-reactid="itk58vgx3">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"> <font color="black">PV Array</font></span></span></span>
+														</p>
+													</div>													
+													<div style="width: 250px; position: absolute; left: 3px; top: 28px;" class="s3" id="comp-it64b7yt3" data-reactid="it64b7yt3">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">Power:</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 50px; top: 28px;" class="s3" id="comp-it64b7yta3" data-reactid="it64b7yta3">
+														<p class="font_7" style="font-size:11px" >
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">30kW </font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 14px;" class="s3" id="comp-it64bwf03" data-reactid="it64bwf03">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold;"><span style="font-size:11px"><font color="black">Status:</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 50px; top: 14px;" class="s3" id="comp-it64bwf0a3" data-reactid="it64bwf0a3">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold;"><span style="font-size:11px"><font color="black">ON</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 56px;" class="s3" id="comp-itd58iia13" data-reactid="itd58iia13">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">        </font></span></span></span>
+														</p>
+													</div>
+
+												</div>
+											</div>
+
+											<!--vehciel box--->
+
+											<div style="position: absolute; width: 120px; height: 80px; top: 390px; left: 770px;background-color: white; border: 2px solid black;"  class="s12" id="comp-itd5cq0d9904" data-reactid="itd5cq0d9904">
+												<div id="comp-itd5cq0dinlineContent9904" class="s12inlineContent" data-reactid="itd5cq0d9904.0">
+
+													<div style="width: 250px; position: absolute; left: 20px; top: 0px;" class="s3" id="comp-itk58vgx3" data-reactid="itk58vgx3">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"> <font color="black">EV-BATT</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 56px;" class="s3" id="comp-it6164d99904" data-reactid="it6164d99904">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">SOC:</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 50px; top: 56px;" class="s3" id="comp-it6164da99904" data-reactid="it6164da99904">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">75 %</font></span></span></span>
+														</p>
+													</div>
+													
+													<div style="width: 250px; position: absolute; left: 3px; top: 42px;" class="s3" id="comp-it6164d99904" data-reactid="it6164d99904">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">Mode:</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 50px; top: 42px;" class="s3" id="comp-it6164da99904" data-reactid="it6164da99904">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">Charging</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 28px;" class="s3" id="comp-it64b7yt9904" data-reactid="it64b7yt9904">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">Power:</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 50px; top: 28px;" class="s3" id="comp-it64b7yta9904" data-reactid="it64b7yta9904">
+														<p class="font_7" style="font-size:11px" >
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">30kW </font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 14px;" class="s3" id="comp-it64bwf09904" data-reactid="it64bwf09904">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold;"><span style="font-size:11px"><font color="black">Status:</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 50px; top: 14px;" class="s3" id="comp-it64bwf0a9904" data-reactid="it64bwf0a9904">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold;"><span style="font-size:11px"><font color="black">ON</font></span></span></span>
+														</p>
+													</div>
+												</div>
+											</div>
+
+											<!-- V2G-BATT -->
+
+											<div style="position: absolute; width: 120px; height: 80px; top: 160px; left: 770px; background-color: white; border: 2px solid black; " class="s12" id="comp-itd5cq0d9905" data-reactid="itd5cq0d9905">
+												<div id="comp-itd5cq0dinlineContent9905" class="s12inlineContent" data-reactid="itd5cq0d9905.0">
+
+													<div style="width: 250px; position: absolute; left: 20px; top: 0px;" class="s3" id="comp-itk58vgx3" data-reactid="itk58vgx3">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"> <font color="black">M2G-BATT</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 56px;" class="s3" id="comp-it6164d99905" data-reactid="it6164d99905">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">SOC:</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 50px; top: 56px;" class="s3" id="comp-it6164da99905" data-reactid="it6164da99905">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">65 %</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 42px;" class="s3" id="comp-it6164d99905" data-reactid="it6164d99905">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">Mode:</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 50px; top: 42px;" class="s3" id="comp-it6164da99905" data-reactid="it6164da99905">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">Discharging</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 28px;" class="s3" id="comp-it64b7yt9905" data-reactid="it64b7yt9905">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">Power:</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 50px; top: 28px;" class="s3" id="comp-it64b7yta9905" data-reactid="it64b7yta9905">
+														<p class="font_7" style="font-size:11px" >
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">-30kW </font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 14px;" class="s3" id="comp-it64bwf09905" data-reactid="it64bwf09905">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold;"><span style="font-size:11px"><font color="black">Status:</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 50px; top: 14px;" class="s3" id="comp-it64bwf0a9905" data-reactid="it64bwf0a9905">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold;"><span style="font-size:11px"><font color="black">ON</font></span></span></span>
+														</p>
+													</div>
+													
+
+												</div>
+											</div>
+											
+											<img src="img/Spawar/DISTRIBUTION_REV1.PNG" alt="Mountain View" style="position: absolute; width: 50px; height: 75px; top: 480px; left: 470px;">
+											
+											<!-- Load box -->
+											<div style="position: absolute; width: 100px; height: 60px; top: 560px; left: 440px;background-color: white; border: 2px solid black;"  class="s12" id="comp-itd5cq0d9906" data-reactid="itd5cq0d9906">
+												<div id="comp-itd5cq0dinlineContent9906" class="s12inlineContent" data-reactid="itd5cq0d9906.0">
+
+													<div style="width: 250px; position: absolute; left: 30px; top: 0px;" class="s3" id="comp-itk58vgx3" data-reactid="itk58vgx3">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"> <font color="black">Loads</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 28px;" class="s3" id="comp-it64b7yt9906" data-reactid="it64b7yt9906">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">Power:</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 50px; top: 28px;" class="s3" id="comp-it64b7yta9906" data-reactid="it64b7yta9906">
+														<p class="font_7" style="font-size:11px" >
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">30kW </font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 14px;" class="s3" id="comp-it64bwf09906" data-reactid="it64bwf09906">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold;"><span style="font-size:11px"><font color="black">Status:</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 50px; top: 14px;" class="s3" id="comp-it64bwf0a9906" data-reactid="it64bwf0a9906">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold;"><span style="font-size:11px"><font color="black">ON</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 56px;" class="s3" id="comp-itd58iia19906" data-reactid="itd58iia19906">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">       </font></span></span></span>
+														</p>
+													</div>
+
+												</div>
+											</div>
+											
+							<!-- total box -->
+											<div style="position: absolute; width: 150px; height: 60px; top: 560px; left: 770px;background-color: white; border: 2px solid black;"  class="s12" >
+												<div  class="s12inlineContent" >
+
+													<div style="width: 250px; position: absolute; left: 3px; top: 0px;" class="s3" >
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"> <font color="black">System Mode: </font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 100px; top: 0px;" class="s3" >
+														<p class="font_7" style="font-size:11px" >
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">Auto </font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 28px;" class="s3">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">Total Power Out:</font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 100px; top: 28px;" class="s3" >
+														<p class="font_7" style="font-size:11px" >
+															<span class="color_31"><span style="font-weight:bold"><span style="font-size:11px"><font color="black">30kW </font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 3px; top: 14px;" class="s3" >
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold;"><span style="font-size:11px"><font color="black">Total Power In: </font></span></span></span>
+														</p>
+													</div>
+													<div style="width: 250px; position: absolute; left: 100px; top: 14px;" class="s3">
+														<p class="font_7" style="font-size:11px">
+															<span class="color_31"><span style="font-weight:bold;"><span style="font-size:11px"><font color="black">31 kW</font></span></span></span>
+														</p>
+													</div>
+
+												</div>
+											</div>
+										<div style="left: 345px; width: 325px; position: absolute; top: 40px;" >
+											<p style="font-size:11px">
+												<font color="white" size="5">60kW Microgrid Module</font>
+												<span style="font-weight:bold "><span style="font-size:11px">   </span></span>
+											</p>
+										</div>
+										</div>
+
+					
+
+				</div><!--/.fluid-container-->
+
+				<!-- end: Content -->
+			</div><!--/#content.span10-->
+		</div><!--/fluid-row-->
+
+		<div class="modal hide fade" id="myModal">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					×
+				</button>
+				<h3>Settings</h3>
+			</div>
+			<div class="modal-body">
+				<p>
+					Here settings can be configured...
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Close</a>
+				<a href="#" class="btn btn-primary">Save changes</a>
+			</div>
+		</div>
+
+		<div class="clearfix"></div>
+
+		<footer>
+
+			<p>
+				<span style="text-align:left;float:left">&copy; 2016 <a href="http://jiji262.github.io/Bootstrap_Metro_Dashboard/" alt="Bootstrap_Metro_Dashboard">Bootstrap Metro Dashboard</a></span>
+
+			</p>
+
+		</footer>
+
+		<!-- start: JavaScript-->
+
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jquery-migrate-1.0.0.min.js"></script>
+
+		<script src="js/jquery-ui-1.10.0.custom.min.js"></script>
+
+		<script src="js/jquery.ui.touch-punch.js"></script>
+
+		<script src="js/modernizr.js"></script>
+
+		<script src="js/bootstrap.min.js"></script>
+
+		<script src="js/jquery.cookie.js"></script>
+
+		<script src='js/fullcalendar.min.js'></script>
+
+		<script src='js/jquery.dataTables.min.js'></script>
+
+		<script src="js/excanvas.js"></script>
+		<script src="js/jquery.flot.js"></script>
+		<script src="js/jquery.flot.pie.js"></script>
+		<script src="js/jquery.flot.stack.js"></script>
+		<script src="js/jquery.flot.resize.min.js"></script>
+
+		<script src="js/jquery.chosen.min.js"></script>
+
+		<script src="js/jquery.uniform.min.js"></script>
+
+		<script src="js/jquery.cleditor.min.js"></script>
+
+		<script src="js/jquery.noty.js"></script>
+
+		<script src="js/jquery.elfinder.min.js"></script>
+
+		<script src="js/jquery.raty.min.js"></script>
+
+		<script src="js/jquery.iphone.toggle.js"></script>
+
+		<script src="js/jquery.uploadify-3.1.min.js"></script>
+
+		<script src="js/jquery.gritter.min.js"></script>
+
+		<script src="js/jquery.imagesloaded.js"></script>
+
+		<script src="js/jquery.masonry.min.js"></script>
+
+		<script src="js/jquery.knob.modified.js"></script>
+
+		<script src="js/jquery.sparkline.min.js"></script>
+
+		<script src="js/counter.js"></script>
+
+		<script src="js/retina.js"></script>
+
+		<script src="js/custom.js"></script>
+			<script  >
+				var outera= new growlLikeNotifications();
+				outera.aaa(); // call the notification function
+				
+			</script>
+		<!-- end: JavaScript-->
+
+	</body>
+</html>

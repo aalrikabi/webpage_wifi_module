@@ -1533,27 +1533,38 @@ function charts() {
 	if($("#stackchart").length)
 	{
 		var d1 = [];
-		for (var i = 0; i <= 10; i += 1)
+		for (var i = 0; i <= 0; i += 1)
 		d1.push([i, parseInt(Math.random() * 30)]);
 
 		var d2 = [];
-		for (var i = 0; i <= 10; i += 1)
+		for (var i = 1; i <= 1; i += 1)
 			d2.push([i, parseInt(Math.random() * 30)]);
 
 		var d3 = [];
-		for (var i = 0; i <= 10; i += 1)
-			d3.push([i, parseInt(Math.random() * 30)]);
+			d3.push([2, parseInt(Math.random() * 30)]);
 
+		var d4 = [];
+			d4.push([3, parseInt(Math.random() * 30)]);
+
+			var d5 = [];
+			d4.push([4, parseInt(Math.random() * 30)]);
+
+			var d6 = [];
+			d4.push([5, parseInt(Math.random() * 30)]);
+
+			var d7 = [];
+			d4.push([6, parseInt(Math.random() * 30)]);
+		
 		var stack = 0, bars = true, lines = false, steps = false;
 
 		function plotWithOptions() {
-			$.plot($("#stackchart"), [ d1, d2, d3 ], {
+			$.plot($("#stackchart"), [ d1, d2, d3,d4,d5,d6,d7 ], {
 				series: {
 					stack: stack,
 					lines: { show: lines, fill: true, steps: steps },
 					bars: { show: bars, barWidth: 0.6 },
 				},
-				colors: ["#FA5833", "#2FABE9", "#FABB3D"]
+				colors: ["#FA5833", "#2FABE9", "#FABB3D","#9BC7E3", "#8BDED5","#8BDEB5","#DBDE8B"  ]
 			});
 		}
 
@@ -1716,12 +1727,7 @@ var datatest = [], totalPointstest = 300;
 
 		// do a random walk
 		while (datatest.length < totalPointstest) {
-			var prevtest = datatest.length > 0 ? datatest[datatest.length - 1] : 50;
-			var ytest = prevtest + Math.random() * 10 - 5;
-			if (ytest < 0)
-				ytest = 0;
-			if (ytest > 100)
-				ytest = 100;
+			var ytest =  Math.random();
 			datatest.push(ytest);
 		}
 
@@ -1745,6 +1751,19 @@ var datatest = [], totalPointstest = 300;
 			if (updateInterval > 2000)
 				updateInterval = 2000;
 			$(this).val("" + updateInterval);
+		}
+	});
+// setup control widget
+	var updateInterval1 = 900;
+	$("#updateInterval1").val(updateInterval1).change(function () {
+		var v = $(this).val();
+		if (v && !isNaN(+v)) {
+			updateInterval1 = +v;
+			if (updateInterval1 < 1)
+				updateInterval1 = 1;
+			if (updateInterval1 > 2000)
+				updateInterval1 = 2000;
+			$(this).val("" + updateInterval1);
 		}
 	});
 
@@ -1820,6 +1839,9 @@ var datatest = [], totalPointstest = 300;
 		update();
 	}
 	
+		function randNum2(){
+		return ((Math.floor( Math.random()* (1+40-20) ) ) + 20) * 500;
+	}
 	
 		
 	if($("#gridPowerChart").length)
@@ -1834,11 +1856,11 @@ var datatest = [], totalPointstest = 300;
 					borderWidth: 0, 
 			},
 		};
-		var plot = $.plot($("#solarPowerChart"), [ getRandomData() ], options);
+		var plot = $.plot($("#solarPowerChart"), [ randNum2() ], options);
 		function update() {
-			plot.setData([ getRandomData() ]);
+			plot.setData([ randNum2() ]);
 			// since the axes don't change, we don't need to call plot.setupGrid()
-			plot.draw();
+			//plot.draw();
 			
 			setTimeout(update, updateInterval);
 		}
@@ -1892,6 +1914,9 @@ var datatest = [], totalPointstest = 300;
 
 		update();
 	}
+	
+	
+	
 	
 	if($("#generatorPowerChart").length)
 	{	
@@ -1963,17 +1988,68 @@ var datatest = [], totalPointstest = 300;
 
 		update();
 	}
-}
+	
+	
+	
+	
+	if($("#realtimechart1").length)
+	{
+		var options = {
+			series: { shadowSize: 1 },
+			lines: { fill: true, fillColor: { colors: [ { opacity: 1 }, { opacity: 0.1 } ] }},
+			yaxis: { min: 0, max: 100 },
+			xaxis: { show: false },
+			colors: ["#F4A506"],
+			grid: {	tickColor: "#dddddd",
+					borderWidth: 0 
+			},
+		};
+		// var plot = $.plot($("#realtimechart1"), [ getRandomData() ], options);
+		var plottesting = $.plottesting($("#realtimechart1"), [ getRandomdatatest() ], options);
+		
+		function update1() {
+			plottesting.setData([ getRandomdatatest() ]);
+			// since the axes don't change, we don't need to call plot.setupGrid()
+			plottesting.draw();
+			
+			setTimeout(update1, updateInterval1);
+		}
 
+		update1();
+	}
+	
+	
+}
+var testing = "Inverter Faulted";
+var activateaaa =0;
+	if (activateaaa==1) {
+	growlLikeNotifications().aaa();
+	};
 function growlLikeNotifications() {
+	this.aaa = function() {
+		var unique_id = $.gritter.add({
+			// (string | mandatory) the heading of the notification
+			title: testing,
+			// (string | mandatory) the text inside the notification
+			text: 'M2G-V2G EVSE Inverter Faulted, 6/7/2016 8:30pm',
+			
+			// (bool | optional) if you want it to fade out on its own or just sit there
+			sticky: true,
+			// (int | optional) the time you want it to be alive for before fading out
+			time: '',
+			// (string | optional) the class name you want to apply to that specific message
+			class_name: 'my-sticky-class'
+		});
+		return false;
+	};
 	
 	$('#add-sticky').click(function(){
 
 		var unique_id = $.gritter.add({
 			// (string | mandatory) the heading of the notification
-			title: 'This is a sticky notice!',
+			title: 'Inverter Faulted',
 			// (string | mandatory) the text inside the notification
-			text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
+			text: 'M2G-V2G EVSE Inverter Faulted, 6/7/2016 8:30pm',
 			// (string | optional) the image to display on the left
 			image: 'img/avatar.jpg',
 			// (bool | optional) if you want it to fade out on its own or just sit there
@@ -2167,7 +2243,7 @@ $.fn.dataTableExt.oApi.fnPagingInfo = function ( oSettings )
 		"iPage":          Math.ceil( oSettings._iDisplayStart / oSettings._iDisplayLength ),
 		"iTotalPages":    Math.ceil( oSettings.fnRecordsDisplay() / oSettings._iDisplayLength )
 	};
-}
+};
 $.extend( $.fn.dataTableExt.oPagination, {
 	"bootstrap": {
 		"fnInit": function( oSettings, nPaging, fnDraw ) {
